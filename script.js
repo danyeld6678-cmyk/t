@@ -12,8 +12,10 @@ const desafios = [
 ];
 
 let pontos = 0;
+let desafioConcluido = false;
 
 const botao = document.getElementById("botaoDesafio");
+const botaoConcluir = document.getElementById("botaoConcluir");
 const texto = document.getElementById("textoDesafio");
 const contador = document.getElementById("pontos");
 
@@ -25,7 +27,18 @@ botao.addEventListener("click", function() {
 
     texto.textContent = desafios[numeroAleatorio];
 
-    pontos += 10;
+    desafioConcluido = false;
+});
 
-    contador.textContent = pontos;
+botaoConcluir.addEventListener("click", function() {
+
+    if (!desafioConcluido) {
+
+        pontos += 10;
+
+        contador.textContent = pontos;
+
+        desafioConcluido = true;
+    }
+
 });
